@@ -43,6 +43,7 @@ app.service('GameManager', function(CharactersService){
            alert("Dummy! You don't enough points for that");
            return;
         }
+        //
         
         _game.guesses += traitCost;
         traitCost++;
