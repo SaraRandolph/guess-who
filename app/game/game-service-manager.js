@@ -6,7 +6,7 @@ app.service('GameManager', function(CharactersService){
 		propertyList: CharactersService.getPropertyList(),
 	};
     var totalGuesses = 15;
-    var traitCost = 1;
+    // _game.traitCost = 1;
     _game.guesses = 0    
 	
 	this.newGame = function(){
@@ -24,12 +24,12 @@ app.service('GameManager', function(CharactersService){
         //NO MODIFICATION NEEDED HERE
         
 		if(character === _computerChoice){
-            debugger
 			_game.victory = true;
 		}else{
 			character.possible = false;
 		}
 		_game.guesses++;
+        
 		if(gameOver()){ return }
 	}
 	
@@ -39,23 +39,22 @@ app.service('GameManager', function(CharactersService){
 		var hasProp = false;
 		var found = false;
                 
-        if(traitCost >= totalGuesses - _game.guesses){
+        if(_game.traitCost >= totalGuesses - _game.guesses){
            alert("Dummy! You don't enough points for that");
            return;
         }
-        //
         
-        _game.guesses += traitCost;
-        traitCost++;
+        _game.guesses += _game.traitCost;
+        _game.traitCost++;
             
         for(var i = 0; i < _computerChoice.traits.length; i++){
             var currentTrait = _computerChoice.traits[i];
             if (currentTrait == prop.name){
                  hasProp = true
+                 alert('Lucky guess! Yes, your character might have something to do with ' + currentTrait)
             } 
         }   
-       
-        
+      
         /**  CAN GUESS
          * Check if the traitCost is greater than remaning guesses
          * totalGuesses = 10; guesses starts at 0 and should be for each guess
@@ -109,7 +108,7 @@ app.service('GameManager', function(CharactersService){
         
         _game.victory = false;
         _game.guesses = 0;
-        _game.traitsCost = 2;
+        _game.traitCost = 1;
         _game.victory = false;
         _game.computerChoice = '';
         _game.gameOver = false;
@@ -150,6 +149,7 @@ app.service('GameManager', function(CharactersService){
         if(_game.guesses >= 15){
             alert('LOSER!!! I WINNNNN!')
             _game.victory = false
+            reset();
             return true
         } 
         
