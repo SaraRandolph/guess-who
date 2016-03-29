@@ -1,0 +1,30 @@
+.panel-default > .panel-heading {
+    background-color: #32C7B6;
+    border-color: #32C7B6;
+}
+
+.btn-dark-blue{
+    color:white;
+    background-color:#3F5361
+}
+
+.alert-success {
+    color: white;
+    font-weight: bold;
+    background-color: #26A1FA;
+    border-color: #26A1FA;
+}
+
+.btn-default:hover {
+    color: white;
+    background-color: #CE7867;
+    border-color: #CE7867;
+}
+
+body{
+    color:#3F5361
+}
+
+.h1-custom{
+    font-size:4em;
+}

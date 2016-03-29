@@ -12,12 +12,12 @@
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<div class="pull-right">
-				<button ng-click="startGame()" ng-show="!game">Start Game</button>
-				<button ng-click="startGame()" ng-show="game">New Game</button>
+				<button class="btn btn-dark-blue" ng-click="startGame()" ng-show="!game">Start Game</button>
+				<button class="btn btn-dark-blue" ng-click="startGame()" ng-show="game">New Game</button>
 				<div class="alert" ng-show="game" ng-class="{'alert-success': game.guesses < 5, 'alert-warning': game.guesses >= 5 && game.guesses < 8, 'alert-danger': game.guesses >= 8 }">Guesses Remaining: {{15 - game.guesses}} {{game.message}}
 				</div>
-			</div>
-			<h3>Guess Who</h3>
+			</div> 
+			<h1 class="h1-custom">Guess Who</h1>
 
 			<div class="controls" ng-show="game">
 				Character Traits... Cost: {{game.traitCost}}
